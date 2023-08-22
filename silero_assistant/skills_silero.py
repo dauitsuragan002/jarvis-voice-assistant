@@ -3,7 +3,7 @@ import subprocess
 import webbrowser
 import asyncio
 import datetime
-import app
+import app_silero
 import aiohttp
 import psutil
 
