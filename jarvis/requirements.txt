@@ -1,14 +1,11 @@
 # Usage: pip install -r requirements.txt
-#python 3.10.6
 
 ffmpeg-python
 ffmpeg
 pydub
+pyaudio
 datetime
-SpeechRecognition
-requests
+SpeechRecognitionrequests
 gTTS
 openai
-webbrowser
 psutil
-subprocess
