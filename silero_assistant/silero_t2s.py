@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- взаймствовал код https://github.com/SnappsiSnappes/Jarvis-free-bingGPT-voice-assistant/blob/main/working_tts.py
 
 
 async def working_tts(text:str):
@@ -40,7 +40,6 @@ async def working_tts(text:str):
         global print_counter
         if print_counter == 0 :
             print_counter += 1
-            print('''\n Озвучивание началось \n''')
         if counter_current_part != 0: print(f'Часть {counter_current_part} из {len(text)} ...')
         while sd.get_stream().active:
             if keyboard.is_pressed('esc'):
@@ -63,7 +62,7 @@ async def working_tts(text:str):
     language = 'ru'
     model_id = 'v3_1_ru'
     sample_rate = 48000
-    speaker = 'eugenue'  # aidar, baya, kseniya, xenia, eugene, random
+    speaker = 'aidar'  # aidar, baya, kseniya, xenia, eugene, random
     put_accent = True
     put_yo = True
     device = torch.device('cpu')
