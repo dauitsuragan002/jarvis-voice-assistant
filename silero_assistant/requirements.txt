@@ -3,14 +3,13 @@
 
 ffmpeg-python
 ffmpeg
+pyaudio
 pydub
 datetime
 SpeechRecognition
 requests
 openai
-webbrowser
 psutil
-subprocess
 silero
 num2words
 torch
