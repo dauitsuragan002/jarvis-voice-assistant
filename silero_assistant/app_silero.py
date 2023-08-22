@@ -73,28 +73,28 @@ async def handle_bot_response(user_input, active_assistant):
     return bot_response
 
 async def recognize_command(command, active_assistant, data):
-    if "открой браузер" in command.lower():
-        await skills_silero.browser(active_assistant)
-    elif "закрывай браузер" in command.lower():
-        await skills_silero.browser_exit(active_assistant)
-    elif "открой игру" in command.lower():
-        await skills_silero.game(active_assistant)
-    elif "закрывай игру" in command.lower():
-        await skills_silero.game_exit(active_assistant)
-    elif "выключи компьютер" in command.lower():
-        await skills_silero.offpc(active_assistant)
-    elif "погода" in command.lower():
-        await skills_silero.weather(active_assistant)
-    elif "время" in command.lower():
-        await skills_silero.time(active_assistant)
-    elif "дата" in command.lower():
-        await skills_silero.date(active_assistant)
-    elif "заглушка" in command.lower():
-        await skills_silero.passive(active_assistant)
-    elif active_assistant in JARVIS_WAKE_WORDS:
-        bot_response = await handle_bot_response(command, active_assistant)
-        await  working_tts(bot_response)
-        return bot_response
+    if active_assistant in JARVIS_WAKE_WORDS:
+        if "открой браузер" in command.lower():
+            await skills_silero.browser(active_assistant)
+        elif "закрывай браузер" in command.lower():
+            await skills_silero.browser_exit(active_assistant)
+        elif "открой игру" in command.lower():
+            await skills_silero.game(active_assistant)
+        elif "закрывай игру" in command.lower():
+            await skills_silero.game_exit(active_assistant)
+        elif "выключи компьютер" in command.lower():
+            await skills_silero.offpc(active_assistant)
+        elif "погода" in command.lower():
+            await skills_silero.weather(active_assistant)
+        elif "время" in command.lower():
+            await skills_silero.time(active_assistant)
+        elif "дата" in command.lower():
+            await skills_silero.date(active_assistant)
+        elif "заглушка" in command.lower():
+            await skills_silero.passive(active_assistant)
+        elif active_assistant in JARVIS_WAKE_WORDS:
+            bot_response = await handle_bot_response(command, active_assistant)
+            return bot_response
 
 async def main():
     active_assistant = None

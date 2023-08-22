@@ -71,28 +71,29 @@ async def handle_bot_response(user_input, active_assistant):
     return bot_response
 
 async def recognize_command(command, active_assistant, data):
-    if "открой браузер" in command.lower():
-        await skills_app.browser(active_assistant)
-    elif "закрывай браузер" in command.lower():
-        await skills_app.browser_exit(active_assistant)
-    elif "открой игру" in command.lower():
-        await skills_app.game(active_assistant)
-    elif "закрывай игру" in command.lower():
-        await skills_app.game_exit(active_assistant)
-    elif "выключи компьютер" in command.lower():
-        await skills_app.offpc(active_assistant)
-    elif "погода" in command.lower():
-        await skills_app.weather(active_assistant)
-    elif "время" in command.lower():
-        await skills_app.time(active_assistant)
-    elif "дата" in command.lower():
-        await skills_app.date(active_assistant)
-    elif "заглушка" in command.lower():
-        await skills_app.passive(active_assistant)
-    elif active_assistant in JARVIS_WAKE_WORDS:
-        bot_response = await handle_bot_response(command, active_assistant)
-        await synthesize_speech(bot_response, "response.mp3", active_assistant)
-        return bot_response
+    if active_assistant in JARVIS_WAKE_WORDS:
+        if "открой браузер" in command.lower():
+            await skills_app.browser(active_assistant)
+        elif "закрывай браузер" in command.lower():
+            await skills_app.browser_exit(active_assistant)
+        elif "открой игру" in command.lower():
+            await skills_app.game(active_assistant)
+        elif "закрывай игру" in command.lower():
+            await skills_app.game_exit(active_assistant)
+        elif "выключи компьютер" in command.lower():
+            await skills_app.offpc(active_assistant)
+        elif "погода" in command.lower():
+            await skills_app.weather(active_assistant)
+        elif "время" in command.lower():
+            await skills_app.time(active_assistant)
+        elif "дата" in command.lower():
+            await skills_app.date(active_assistant)
+        elif "заглушка" in command.lower():
+            await skills_app.passive(active_assistant)
+        elif active_assistant in JARVIS_WAKE_WORDS:
+            bot_response = await handle_bot_response(command, active_assistant)
+            await synthesize_speech(bot_response, "response.mp3", active_assistant)
+            return bot_response
 
 async def main():
     active_assistant = None
