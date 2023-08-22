@@ -16,3 +16,4 @@ torch
 sounddevice
 keyboard
 transliterate
+numpy
